@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+
     <link rel="stylesheet" href="styles/index.css" />
     <title>Slideshow Editor</title>
   </head>
@@ -12,88 +17,117 @@
     <section id="slideshow-editor">
       <!-- <div class="container"> -->
       <div class="row">
-        <div class="slideshow">
+        <div class="slideshow swiper">
+          <div class="swiper-wrapper"></div>
           <div class="slideshow-controls">
             <button class="play">Play</button>
             <button class="stop">Stop</button>
           </div>
         </div>
         <div class="library">
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/1.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/2.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/3.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/4.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/5.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/6.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/7.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/8.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/9.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/10.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/11.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/12.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/13.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/14.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/15.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/16.jpg" alt="nature" />
-          </div>
-          <!-- item -->
-          <div class="library-item">
-            <img src="images/17.jpg" alt="nature" />
+          <h3 class="library-label">Add images to the timeline.</h3>
+
+          <div class="library-items">
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/1.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/2.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/3.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/4.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/5.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/6.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/7.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/8.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/9.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/10.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/11.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/12.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/13.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/14.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/15.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/16.jpg" alt="nature" />
+            </div>
+            <!-- item -->
+            <div class="library-item">
+              <img src="images/17.jpg" alt="nature" />
+            </div>
           </div>
         </div>
       </div>
-      <div class="timeline"></div>
+      <div class="timeline">
+        <form class="timeline-transition">
+          <h3 class="timeline-transition-label">Select transition:</h3>
+          <div class="timeline-transition-types">
+            <!-- type  -->
+            <div class="type active">
+              <label for="#slide">Slide</label>
+              <input type="radio" name="slide" id="slide" />
+            </div>
+            <!-- type  -->
+            <div class="type">
+              <label for="#fade">Fade</label>
+              <input type="radio" name="fade" id="fade" />
+            </div>
+            <!-- type  -->
+            <div class="type">
+              <label for="#coverflow">Cover flow</label>
+              <input type="radio" name="coverflow" id="coverflow" />
+            </div>
+          </div>
+        </form>
+
+        <div class="timeline-items"></div>
+      </div>
       <!-- </div> -->
     </section>
 
     <!--------- SCRIPTS ------------>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/slideshow.js"></script>
     <script src="js/index.js"></script>
   </body>
