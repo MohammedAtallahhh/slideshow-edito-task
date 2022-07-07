@@ -10,11 +10,11 @@ const transitionForm = timeline.querySelector(".timeline-transition");
 
 let swiper;
 
-//------------------- TIMELINE
 const timelineItems = new Array(10).fill(0);
 timelineItems[2] = "images/1.jpg";
 let timelineTransition = "slide";
 
+//------------------ FUNCTIONS
 const renderTimeline = () => {
   timelineItems.forEach(
     (item, i) =>
@@ -52,6 +52,7 @@ const makeSlider = () => {
     },
   });
 
+  // Stopping the slider to control it manually
   swiper.autoplay.stop();
   swiper.disable();
 
@@ -73,6 +74,21 @@ const makeSlider = () => {
   });
 };
 
+const renderSlideShow = () => {
+  timelineItems.forEach(
+    (slide, i) =>
+      (slideshowWrapper.innerHTML += `
+    <div class='swiper-slide'>
+    ${
+      slide === 0
+        ? `<div class='blank-slide'>Slide ${i + 1}`
+        : `<img src=${slide} />`
+    }
+    </div>
+    `)
+  );
+};
+
 const handleTransitionChange = (e) => {
   if (e.target.closest(".type")) {
     const newActive = e.target.closest(".type");
@@ -85,24 +101,9 @@ const handleTransitionChange = (e) => {
   }
 };
 
-const renderSlideShow = () => {
-  timelineItems.forEach(
-    (slide, i) =>
-      (slideshowWrapper.innerHTML += `
-    <div class='swiper-slide'>
-      ${
-        slide === 0
-          ? `<div class='blank-slide'>Slide ${i + 1}`
-          : `<img src=${slide} />`
-      }
-    </div>
-  `)
-  );
-};
-
-transitionForm.addEventListener("click", handleTransitionChange);
-//--------------------------- SLIDESHOW
-
 renderTimeline();
 renderSlideShow();
 makeSlider();
+
+//------------------------- EVENTS
+transitionForm.addEventListener("click", handleTransitionChange);
