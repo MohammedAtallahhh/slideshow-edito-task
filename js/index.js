@@ -48,7 +48,7 @@ const renderTimeline = () => {
     (item, i) =>
       (timelineItemsElement.innerHTML += `
       <div class='timeline-item drop-target' data-index='${i}' draggable>
-          ${item === 0 ? i + 1 : `<img src=${item} />`}
+          ${item === 0 ? i + 1 : `<img src=${item} alt="nature" />`}
       </div>`)
   );
 };
@@ -76,7 +76,7 @@ const renderLibrary = () => {
     (item) =>
       (libraryItemsElement.innerHTML += `
     <div class="library-item" draggable>
-      <img src='images/${item}.jpg' />
+      <img src='images/${item}.jpg' alt="nature" />
     </div>
   `)
   );
@@ -140,7 +140,7 @@ const renderSlideShow = () => {
     ${
       slide === 0
         ? `<div class='blank-slide'>Slide ${i + 1}`
-        : `<img src=${slide} />`
+        : `<img src=${slide} alt="nature slide" />`
     }
     </div>
     `)
@@ -166,9 +166,7 @@ const handleDragStart = (e) => {
   if (!e.target.closest("[draggable]")) return;
 
   timeline.classList.add("active-dragging");
-  library.classList.add("active-dragging");
 
-  console.dir(e.target);
   e.dataTransfer.setData(
     "text/plain",
     JSON.stringify({
