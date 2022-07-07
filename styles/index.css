@@ -125,27 +125,29 @@ img {
 }
 
 .library-items {
-  padding: 3rem;
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   height: 400px;
-  background: hsl(203, 100%, 87%);
-  border: 3px solid hsl(203, 100%, 76%);
+  background: hsl(203, 100%, 92%);
+  border: 3px solid hsl(203, 100%, 81%);
   overflow: auto;
 }
 
 .library-item {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border: 1px solid #aaa;
   flex-shrink: 0;
+  cursor: grab;
 }
 
 /*-----------------------
 ------------ TIMELINE 
 ----------------------*/
+
 .timeline-transition {
   display: flex;
   align-items: center;
@@ -203,4 +205,27 @@ img {
   align-items: center;
   justify-content: center;
   font-size: 5rem;
+  transition: 150ms ease;
+}
+
+.timeline.active-dragging .timeline-item {
+  border-style: dotted;
+  border-width: 5px;
+}
+
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .slideshow {
+    width: 100%;
+    flex: unset;
+    margin-right: 0;
+    margin-bottom: 5rem;
+  }
+
+  .library {
+    flex: unset;
+  }
 }
