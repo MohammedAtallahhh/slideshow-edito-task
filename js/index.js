@@ -172,6 +172,7 @@ const handleDragStart = (e) => {
     JSON.stringify({
       src: e.target.attributes.src.value,
       target: e.target.parentElement.dataset.index,
+      isTimelineElement: !!e.target.closest(".timeline-item"),
     })
   );
 };
@@ -187,18 +188,17 @@ const handleDrop = (e) => {
 
   // getting data from the dragged content
   const data = JSON.parse(e.dataTransfer.getData("text/plain"));
-  const imgSrc = data.src;
-  const imgName = getNameFromSrc(imgSrc);
-  const oldImgIndex = data.target && +data.target;
-
+  const imgName = getNameFromSrc(data.src);
   const currentImgIndex = +e.target.closest(".drop-target").dataset.index;
 
   // If we are dragging from the timeline we need to delete the old cell
-  if (oldImgIndex !== undefined) {
-    timelineItems[oldImgIndex] = timelineItems[currentImgIndex];
-  } else libraryImages = libraryImages.filter((img) => img !== imgName);
+  if (data.isTimelineElement) {
+    timelineItems[data.target] = timelineItems[currentImgIndex];
+  } else {
+    libraryImages = libraryImages.filter((img) => img !== imgName);
+  }
 
-  timelineItems[currentImgIndex] = imgSrc;
+  timelineItems[currentImgIndex] = data.src;
   render();
   timeline.classList.remove("active-dragging");
 };
